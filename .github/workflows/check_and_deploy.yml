@@ -18,18 +18,13 @@ jobs:
  build_apk_aab:
   #  if: startsWith(github.head_ref, 'release/') == true
    name: Build release artifacts
-   runs-on: ubuntu-latest
+   runs-on: ubuntu-20.04
    steps:
-     
-     - name: Checkout code
-      uses: actions/checkout@v2
-     
+     - uses: actions/checkout@v2
      - name: permission to gradlew
-      run: chmod +x gradlew 
-
+       run: chmod +x gradlew 
      - name: Generate Release APK
-      run: ./gradlew assembleRelease
-     
+       run: ./gradlew assembleRelease
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
@@ -40,10 +35,14 @@ jobs:
      #    alias: ${{ secrets.ALIAS }}
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
      #    keyPassword: ${{ secrets.KEY_PASSWORD }}
-     
-    - name: Upload APK
-      uses: actions/upload-artifact@v2
-      with:
-       name: app-release.apk
-       path: app/build/outputs/apk/release/app-release-unsigned.apk
+     - name: Upload APK
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-release.apk
+         path: app/build/outputs/apk/release/app-release-unsigned.apk
+     - name: Upload AAB Bundle
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-release.aab
+         path: app/build/outputs/bundle/release/app-release.aab
 
