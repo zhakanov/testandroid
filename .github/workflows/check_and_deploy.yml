@@ -10,17 +10,17 @@
 
 name: Test and deploy
 
-## Actions that will be executed when you push code currently none
-# on:
-#   push:
-#     branches:
-#       - main
-
+# Actions that will be executed when you push code currently none
 on:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
-      - master
+      - main
+
+# on:
+#   pull_request:
+#     types: [ closed ]
+#     branches:
+#       - master
 
 jobs:
 build_android:
