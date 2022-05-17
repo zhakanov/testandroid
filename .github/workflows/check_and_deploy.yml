@@ -42,7 +42,7 @@ jobs:
      #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
      #    alias: ${{ secrets.ALIAS }}
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-     #    keyPassword: ${{ secrets.KEY_PASSWORD }}
+     #    keyPassword: ${{ secrets.KEY_PASSWORD }}  
      - name: Upload APK
        uses: actions/upload-artifact@v2
        with:
