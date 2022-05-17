@@ -19,31 +19,31 @@ jobs:
   #  if: startsWith(github.head_ref, 'release/') == true
    name: Build release artifacts
    runs-on: ubuntu-latest
-    steps:
-      
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: permission to gradlew
-        run: chmod +x gradlew 
+   steps:
+     
+     - name: Checkout code
+      uses: actions/checkout@v2
+     
+     - name: permission to gradlew
+      run: chmod +x gradlew 
 
-      - name: Generate Release APK
-        run: ./gradlew assembleRelease
-      
-      # - name: Sign APK
-      #   uses: r0adkll/sign-android-release@v1
-      #   # ID used to access action output
-      #   id: sign_app
-      #   with:
-      #     releaseDirectory: app/build/outputs/apk/release
-      #     signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-      #     alias: ${{ secrets.ALIAS }}
-      #     keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-      #     keyPassword: ${{ secrets.KEY_PASSWORD }}
-      
-     - name: Upload APK
-       uses: actions/upload-artifact@v2
-       with:
-         name: app-release.apk
-         path: app/build/outputs/apk/release/app-release-unsigned.apk
+     - name: Generate Release APK
+      run: ./gradlew assembleRelease
+     
+     # - name: Sign APK
+     #   uses: r0adkll/sign-android-release@v1
+     #   # ID used to access action output
+     #   id: sign_app
+     #   with:
+     #    releaseDirectory: app/build/outputs/apk/release
+     #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+     #    alias: ${{ secrets.ALIAS }}
+     #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+     #    keyPassword: ${{ secrets.KEY_PASSWORD }}
+     
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+       name: app-release.apk
+       path: app/build/outputs/apk/release/app-release-unsigned.apk
 
