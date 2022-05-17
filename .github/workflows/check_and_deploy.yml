@@ -14,7 +14,7 @@ name: Test and deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 # on:
 #   pull_request:
