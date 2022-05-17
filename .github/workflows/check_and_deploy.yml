@@ -20,7 +20,7 @@ jobs:
  build_apk_aab:
   #  if: startsWith(github.head_ref, 'release/') == true
    name: Build release artifacts
-   runs-on: ubuntu-20.04
+   runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
      - name: permission to gradlew
