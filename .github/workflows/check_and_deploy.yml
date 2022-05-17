@@ -23,7 +23,7 @@ on:
       - master
 
 jobs:
-  build_android:
+build_android:
     #  if: startsWith(github.head_ref, 'release/') == true
     name: Build release artifacts
     runs-on: ubuntu-latest
