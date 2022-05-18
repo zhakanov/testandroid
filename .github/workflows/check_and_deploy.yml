@@ -25,7 +25,7 @@ jobs:
      - name: Build release APK and AAB after test
        run: |
          ./gradlew assembleRelease
-         ./gradlew assembleRDebug 
+         ./gradlew assembleDebug 
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
