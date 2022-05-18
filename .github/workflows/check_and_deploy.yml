@@ -24,7 +24,8 @@ jobs:
        run: chmod +x gradlew 
      - name: Build release APK and AAB after test
        run: |
-         ./gradlew assembleRelease
+         ./gradlew test
+         ./gradlew assembleDebug
          ./gradlew bundleDebug 
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
