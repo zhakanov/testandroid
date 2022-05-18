@@ -34,13 +34,11 @@ jobs:
      #    alias: ${{ secrets.ALIAS }}
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
      #    keyPassword: ${{ secrets.KEY_PASSWORD }}  
-     - name: Upload APK
+     - name: Upload AAB
        uses: actions/upload-artifact@v2
-       id: sign_app
        with:
-         releaseDirectory: app/build/outputs/apk/release
-         name: app-release.apk
-         path: ${{steps.sign_app.outputs.signedReleaseFile}}
+         name: app-release.aab
+         path: app/build/outputs/apk/release/app-release-unsigned.aab
     #  - name: Upload AAB Bundle
     #    uses: actions/upload-artifact@v2
     #    with:
@@ -53,11 +51,11 @@ jobs:
    steps:
      - uses: actions/download-artifact@master
        with:
-         name: app-release.apk
+         name: app-release.aab
      - name: upload artifact to Firebase App Distribution
        uses: wzieba/Firebase-Distribution-Github-Action@v1
        with:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
         #  groups: QA
-         file: /home/runner/work/testandroid/testandroid/app-release-unsigned.apk
+         file: /home/runner/work/testandroid/testandroid/app-release-unsigned.aab
