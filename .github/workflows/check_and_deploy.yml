@@ -23,7 +23,7 @@ jobs:
      - name: permission to gradlew
        run: chmod +x gradlew 
      - name: permission to gradlew
-       run: rm -rf $GRADLE_HOME/caches/build-cache-*
+       run: ls -lart $GRADLE_HOME/caches/build-cache-*
      - name: Build release APK and AAB after test
        run: |
          ./gradlew assembleDebug
