@@ -21,9 +21,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name: permission to gradlew
-       run: chmod +x gradlew 
-     - name: permission to gradlew
-       run: ls -lart $HOME/.gradle/
+       run: chmod +x gradlew
      - name: Build release APK and AAB after test
        run: |
          ./gradlew assembleDebug
