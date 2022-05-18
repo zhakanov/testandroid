@@ -23,7 +23,10 @@ jobs:
      - name: permission to gradlew
        run: chmod +x gradlew 
      - name: Generate Release aab
-       run: ./gradlew bundleRelease
+       run: |
+         ./gradlew test
+         ./gradlew assembleRelease
+         ./gradlew bundleRelease
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
