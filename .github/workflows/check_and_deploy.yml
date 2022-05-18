@@ -37,29 +37,29 @@ jobs:
      #    alias: ${{ secrets.ALIAS }}
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
      #    keyPassword: ${{ secrets.KEY_PASSWORD }}  
-     - name: Upload APK
-       uses: actions/upload-artifact@v2
-       with:
-         name: app-release.apk
-         path: app/build/outputs/apk/release/app-release-unsigned.apk
+    #  - name: Upload APK
+    #    uses: actions/upload-artifact@v2
+    #    with:
+    #      name: app-release.apk
+    #      path: app/build/outputs/apk/release/app-release-unsigned.apk
      - name: Upload AAB Bundle
        uses: actions/upload-artifact@v2
        with:
          name: app-release.aab
          path: app/build/outputs/bundle/release/app-release.aab
 
- deploy-firebase:
-   needs: [ build_android ]
-   runs-on: ubuntu-latest
-   steps:
-     - uses: actions/download-artifact@master
-       with:
-         name: app-release.aab
-     - name: upload artifact to Firebase App Distribution
-       uses: wzieba/Firebase-Distribution-Github-Action@v1
-       with:
-         appId: ${{secrets.FIREBASE_APP_ID}}
-         token: ${{secrets.FIREBASE_TOKEN}}
-        #  groups: QA
-         file: /home/runner/work/testandroid/testandroid/app-release.aab
-        #  file: /app/build/outputs/bundle/release/app-release.aab
+#  deploy-firebase:
+#    needs: [ build_android ]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/download-artifact@master
+#        with:
+#          name: app-release.aab
+#      - name: upload artifact to Firebase App Distribution
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{secrets.FIREBASE_APP_ID}}
+#          token: ${{secrets.FIREBASE_TOKEN}}
+#         #  groups: QA
+#          file: /home/runner/work/testandroid/testandroid/app-release.aab
+
