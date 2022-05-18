@@ -22,10 +22,10 @@ jobs:
      - uses: actions/checkout@v2
      - name: permission to gradlew
        run: chmod +x gradlew 
-     - name: Generate Release aab
-       run: |
-         ./gradlew assembleDebug
-         ./gradlew bundleRelease
+     - name: assembleRelease
+       run: ./gradlew assembleRelease
+     - name: assembleDebug
+       run: ./gradlew assembleDebug   
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
