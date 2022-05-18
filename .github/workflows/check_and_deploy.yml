@@ -61,5 +61,5 @@ jobs:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
         #  groups: QA
-         file: /home/runner/work/testandroid/testandroid/app-release-unsigned.aab
+        #  file: /home/runner/work/testandroid/testandroid/app-release-unsigned.aab
          file: /app/build/outputs/bundle/release/app-release.aab
