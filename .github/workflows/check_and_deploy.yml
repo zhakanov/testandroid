@@ -36,9 +36,16 @@ jobs:
      #    keyPassword: ${{ secrets.KEY_PASSWORD }}  
      - name: Upload APK
        uses: actions/upload-artifact@v2
+       id: sign_app
        with:
+         releaseDirectory: app/build/outputs/apk/release
          name: app-release.apk
-         path: app/build/outputs/apk/release/app-release-unsigned.apk
+         path: ${{steps.sign_app.outputs.signedReleaseFile}}
+    #  - name: Upload AAB Bundle
+    #    uses: actions/upload-artifact@v2
+    #    with:
+    #      name: app-release.aab
+    #      path: app/build/outputs/bundle/release/app-release.aab
 
  deploy-firebase:
    needs: [ build_android ]
