@@ -24,6 +24,7 @@ jobs:
        run: chmod +x gradlew
      - name: Build release APK and AAB after test
        run: |
+         ./gradlew clean
          ./gradlew assembleRelease
          ./gradlew bundleDebug 
      # - name: Sign APK
