@@ -24,7 +24,7 @@ jobs:
        run: chmod +x gradlew
      - name: Build release APK and AAB after test
        run: |
-         ./gradlew bundleDebug 
+         ./gradlew bundleRelease 
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
@@ -53,7 +53,7 @@ jobs:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
          groups: 'QF'
-         file: ./app/build/outputs/bundle/debug/app-debug.aab
+         file: ./app/build/outputs/release/debug/app-debug.aab
          releasenotes: Workflow ${{ github.run_number }}
          releaseNotesFile: ./README.md
 
