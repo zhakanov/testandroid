@@ -35,7 +35,9 @@ jobs:
      #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
      #    alias: ${{ secrets.ALIAS }}
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-     #    keyPassword: ${{ secrets.KEY_PASSWORD }}  
+     #    keyPassword: ${{ secrets.KEY_PASSWORD }}
+     - name: find artifacts
+       run: find . -name 'app-debug.apk'  
      - name: Upload APK
        uses: actions/upload-artifact@v2
        with:
@@ -53,14 +55,14 @@ jobs:
    steps:
      - uses: actions/download-artifact@master
        with:
-         name: app-debug.apk
+         name: app-release.apk
      - name: upload artifact to Firebase App Distribution
        uses: hasretsariyer/firebase-app-distribution-github-action@v1.0
        with:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
          groups: QF
-         file: /home/runner/work/testandroid/testandroid/app-debug.apk
+         file: /home/runner/work/testandroid/testandroid/app-release.apk
          releaseNotes: Workflow ${{ github.run_number }}
          releaseNotesFile: ./README.md
 
