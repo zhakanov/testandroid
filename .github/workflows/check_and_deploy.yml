@@ -5,7 +5,10 @@ name: Test and deploy
 on:
   push:
     branches:
-      - master
+      - master    
+    tags:        
+      - v2
+      - v1.*
 
 # on:
 #   pull_request:
