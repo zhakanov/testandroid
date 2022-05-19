@@ -59,11 +59,11 @@ jobs:
      - name: copy file
        run: cp /home/runner/work/testandroid/testandroid/app-release.apk /github/workspace/app-release.apk
      - name: upload artifact to Firebase App Distribution
-       uses: hasretsariyer/firebase-app-distribution-github-action@v1.0
+       uses: wzieba/Firebase-Distribution-Github-Action@v1
        with:
-         app_id: ${{secrets.FIREBASE_APP_ID}}
-         firebase_token: ${{secrets.FIREBASE_TOKEN}}
-         tester_groups: QF
+         appId: ${{secrets.FIREBASE_APP_ID}}
+         token: ${{secrets.FIREBASE_TOKEN}}
+         groups: QF
          app_file: /home/runner/work/testandroid/testandroid/app-release.apk
          release_notes: Workflow ${{ github.run_number }}
 
