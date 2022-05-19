@@ -48,22 +48,31 @@ jobs:
     #    with:
     #      name: app-debug.apk
     #      path: /app/build/outputs/apk/debug/app-debug.apk
-
- deploy-firebase:
-   needs: [ build_android ]
-   runs-on: ubuntu-latest
-   steps:
-    #  - uses: actions/download-artifact@master
-    #    with:
-    #      name: app-release.apk
-     - name: find artifacts
-       run: find . -name 'app-debug.apk' -o -name 'app-release.apk'
      - name: upload artifact to Firebase App Distribution
        uses: wzieba/Firebase-Distribution-Github-Action@v1
        with:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
          groups: QF
-         file: ./app/build/outputs/apk/debug/app-debug.apk
+         file: /app/build/outputs/apk/debug/app-debug.apk
          releasenotes: Workflow ${{ github.run_number }}
+
+
+#  deploy-firebase:
+#    needs: [ build_android ]
+#    runs-on: ubuntu-latest
+#    steps:
+#     #  - uses: actions/download-artifact@master
+#     #    with:
+#     #      name: app-release.apk
+#      - name: find artifacts
+#        run: find . -name 'app-debug.apk' -o -name 'app-release.apk'
+#      - name: upload artifact to Firebase App Distribution
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{secrets.FIREBASE_APP_ID}}
+#          token: ${{secrets.FIREBASE_TOKEN}}
+#          groups: QF
+#          file: ./app/build/outputs/apk/debug/app-debug.apk
+#          releasenotes: Workflow ${{ github.run_number }}
 
