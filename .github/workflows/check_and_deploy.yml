@@ -61,7 +61,7 @@ jobs:
        with:
          app_id: ${{secrets.FIREBASE_APP_ID}}
          firebase_token: ${{secrets.FIREBASE_TOKEN}}
-         groups: QF
+         tester_groups: QF
          app_file: /home/runner/work/testandroid/testandroid/app-release.apk
-         elease_notes: Workflow ${{ github.run_number }}
+         release_notes: Workflow ${{ github.run_number }}
 
