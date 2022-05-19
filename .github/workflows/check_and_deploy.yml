@@ -56,6 +56,7 @@ jobs:
          groups: 'QF'
          file: ./app/build/outputs/apk/debug/app-debug.apk
          releasenotes: Workflow ${{ github.run_number }}
+         releaseNotesFile: ./README.md
 
 
 #  deploy-firebase:
