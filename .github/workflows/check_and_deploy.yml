@@ -64,5 +64,4 @@ jobs:
          groups: QF
          file: /home/runner/work/testandroid/testandroid/app-release.apk
          releaseNotes: Workflow ${{ github.run_number }}
-         releaseNotesFile: ./README.md
 
