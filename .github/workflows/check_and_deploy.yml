@@ -53,7 +53,7 @@ jobs:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
          groups: 'QF'
-         file: ./app/build/outputs/apk/debug/app-debug.apk
+         file: ./app/build/outputs/bundle/debug/app-debug.aab
          releasenotes: Workflow ${{ github.run_number }}
          releaseNotesFile: ./README.md
 
