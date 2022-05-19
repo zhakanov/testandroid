@@ -24,8 +24,8 @@ jobs:
        run: chmod +x gradlew
      - name: Build release APK and AAB after test
        run: |
-         ./gradlew assembleRelease 
-         ./gradlew bundleDebug 
+         ./gradlew bundleRelease
+         ./gradlew assembleDebug
      # - name: Sign APK
      #   uses: r0adkll/sign-android-release@v1
      #   # ID used to access action output
@@ -37,7 +37,7 @@ jobs:
      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
      #    keyPassword: ${{ secrets.KEY_PASSWORD }}
      - name: find artifacts
-       run: find . -name '*.aab'
+       run: find . -name '*.apk'
     #  - name: Upload APK
     #    uses: actions/upload-artifact@v2
     #    with:
