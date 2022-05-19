@@ -56,6 +56,8 @@ jobs:
      - uses: actions/download-artifact@master
        with:
          name: app-release.apk
+     - name: copy file
+       run: cp /home/runner/work/testandroid/testandroid/app-release.apk /github/workspace/app-release.apk
      - name: upload artifact to Firebase App Distribution
        uses: hasretsariyer/firebase-app-distribution-github-action@v1.0
        with:
