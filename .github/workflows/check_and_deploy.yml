@@ -43,11 +43,11 @@ jobs:
        with:
          name: app-release.apk
          path: app/build/outputs/apk/release/app-release-unsigned.apk
-     - name: Upload AAB Bundle
-       uses: actions/upload-artifact@v2
-       with:
-         name: app-debug.apk
-         path: app/build/outputs/bundle/debug/app-debug.apk
+    #  - name: Upload AAB Bundle
+    #    uses: actions/upload-artifact@v2
+    #    with:
+    #      name: app-debug.apk
+    #      path: /app/build/outputs/apk/debug/app-debug.apk
 
  deploy-firebase:
    needs: [ build_android ]
