@@ -55,7 +55,7 @@ jobs:
        with:
          name: app-debug.apk
      - name: upload artifact to Firebase App Distribution
-       uses: hasretsariyer/firebase-app-distribution-github-action@v1
+       uses: hasretsariyer/firebase-app-distribution-github-action@v1.0
        with:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
