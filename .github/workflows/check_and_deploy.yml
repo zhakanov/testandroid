@@ -55,7 +55,7 @@ jobs:
        with:
          appId: ${{secrets.FIREBASE_APP_ID}}
          token: ${{secrets.FIREBASE_TOKEN}}
-         groups: 'this is project+'
+         groups: 'this-is-project+'
          file: ./app/build/outputs/apk/debug/app-debug.apk
          releaseNotesFile: ./README.md
          releasenotes: Workflow ${{ github.run_number }}
