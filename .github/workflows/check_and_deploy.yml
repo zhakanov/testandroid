@@ -78,7 +78,9 @@ jobs:
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: count
-       run: grep -o -i ${{ steps.changed-files.outputs.all_changed_files }} | wc -l
+       run: |
+       ${{ steps.changed-files.outputs.all_changed_files }} >> txt.txt
+       grep -o -i txt.txt | wc -l
 
     #  - name: List all changed files
     #    run: |
