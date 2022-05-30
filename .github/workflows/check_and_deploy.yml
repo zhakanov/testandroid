@@ -1,52 +1,80 @@
+# # name: Test and deploy
+
+# # ## Actions that will be executed when you push code currently none
+# # on:
+# #   pull_request:
+# #     types: [ closed ]
+# #     branches:
+# #       - main
+
+
 # name: Test and deploy
 
 # ## Actions that will be executed when you push code currently none
+# # on:
+# #   push:
+# #     branches:
+# #       - main
+
 # on:
 #   pull_request:
 #     types: [ closed ]
 #     branches:
-#       - main
+#       - master
+
+# jobs:
+#  build_apk_aab:
+#   #  if: startsWith(github.head_ref, 'release/') == true
+#    name: Build release artifacts
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: permission to gradlew
+#        run: chmod +x gradlew 
+#      - name: Generate Release APK
+#        run: ./gradlew assembleRelease
+#      # - name: Sign APK
+#      #   uses: r0adkll/sign-android-release@v1
+#      #   # ID used to access action output
+#      #   id: sign_app
+#      #   with:
+#      #    releaseDirectory: app/build/outputs/apk/release
+#      #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+#      #    alias: ${{ secrets.ALIAS }}
+#      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+#      #    keyPassword: ${{ secrets.KEY_PASSWORD }}
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: app-release.apk
+#          path: app/build/outputs/apk/release/app-release-unsigned.apk
+
+
+
 
 
 name: Test and deploy
 
-## Actions that will be executed when you push code currently none
-# on:
-#   push:
-#     branches:
-#       - main
-
+# Actions that will be executed when you push code currently none 
 on:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
-      - master
+      - main
+
+# on:
+#   pull_request:
+#     types: [ closed ]
+#     branches:
+#       - develop
 
 jobs:
- build_apk_aab:
+ build_android:
   #  if: startsWith(github.head_ref, 'release/') == true
-   name: Build release artifacts
+   name: Build debug artifacts
    runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
      - name: permission to gradlew
-       run: chmod +x gradlew 
-     - name: Generate Release APK
-       run: ./gradlew assembleRelease
-     # - name: Sign APK
-     #   uses: r0adkll/sign-android-release@v1
-     #   # ID used to access action output
-     #   id: sign_app
-     #   with:
-     #    releaseDirectory: app/build/outputs/apk/release
-     #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-     #    alias: ${{ secrets.ALIAS }}
-     #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-     #    keyPassword: ${{ secrets.KEY_PASSWORD }}
-     - name: Upload APK
-       uses: actions/upload-artifact@v2
-       with:
-         name: app-release.apk
-         path: app/build/outputs/apk/release/app-release-unsigned.apk
+       run: ${{ github.event.pull_request.base.sha }}  
 
 
