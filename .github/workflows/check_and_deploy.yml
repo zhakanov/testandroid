@@ -75,6 +75,9 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name: permission to gradlew
-       run: ${{ github.event.pull_request.base.sha }}  
+       if: ${{ github.event.pull_request.base.sha }}  
+       run: |
+         git fetch origin main ${{ github.event.pull_request.base.sha }}
+         git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
 
 
