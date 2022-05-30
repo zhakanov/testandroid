@@ -75,7 +75,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name:
-       run: git whatchanged main.. --format=oneline | grep "^:" | wc -l
+       run: git ls-tree -r main
 
 
 
