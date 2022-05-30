@@ -75,7 +75,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name:
-       run: git diff --name-status [SHA1 [SHA2]]
+       run: git diff --stat HEAD~5 HEAD
 
 
 
