@@ -74,10 +74,9 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
-     - name: permission to gradlew
-       if: ${{ github.event.pull_request.base.sha }}  
-       run: |
-         git fetch origin main ${{ github.event.pull_request.base.sha }}
-         git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+     - name:
+       run: git diff --name-only SHA1 SHA2
+
+
 
 
