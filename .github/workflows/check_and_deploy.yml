@@ -75,7 +75,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name:
-       run: git diff --cached --numstat | wc -l
+       run: git status | grep 'modified:' | wc -l
 
 
 
