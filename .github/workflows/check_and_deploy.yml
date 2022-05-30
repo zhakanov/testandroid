@@ -84,7 +84,7 @@ jobs:
            echo "$file was changed"
          done
      - name: count
-       run: if 'ls | wc -l' > 9
+       run: ls -1 | wc -l
 
 
 
