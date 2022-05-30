@@ -75,7 +75,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name:
-       run: git diff --shortstat HEAD~5 HEAD
+       run: git diff --shortstat HEAD~5 HEAD >> count.txt
 
 
 
