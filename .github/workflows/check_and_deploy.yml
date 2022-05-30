@@ -82,6 +82,7 @@ jobs:
        run: |
          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            echo "$file was changed"
+           ls | wc -l
          done
      - name: count
        run: grep -o -i ${{ steps.changed-files.outputs.all_changed_files }} | wc -l
