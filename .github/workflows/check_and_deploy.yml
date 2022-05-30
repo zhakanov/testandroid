@@ -75,7 +75,7 @@ jobs:
    steps:
      - uses: actions/checkout@v2
      - name:
-       run: git status | grep 'modified:' | wc -l
+       run: git whatchanged master.. --format=oneline | grep "^:" | wc -l
 
 
 
