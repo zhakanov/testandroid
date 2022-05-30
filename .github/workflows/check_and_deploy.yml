@@ -83,8 +83,7 @@ jobs:
          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            echo "$file was changed"
          done
-     - name: count
-       run: ls -1 | wc -l
+         ${{ steps.changed-files.outputs.all_changed_files }} >> 123.txt
 
 
 
