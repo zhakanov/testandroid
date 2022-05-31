@@ -84,7 +84,7 @@ jobs:
       #        echo "$file was changed"
       #      done
      - name: List all changed files
-       run: wc -l ${{ steps.changed-files.outputs.all_changed_files }}
+       run: wc -w ${{ steps.changed-files.outputs.all_changed_files }}
 
 
 
