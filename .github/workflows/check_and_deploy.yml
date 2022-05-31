@@ -65,7 +65,7 @@ on:
 #   pull_request:
 #     types: [ closed ]
 #     branches:
-#       - develop
+#       - main
 
 jobs:
  build_android:
@@ -83,16 +83,16 @@ jobs:
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          echo "::set_output name=count::$(wc -w 123.txt | awk '{print $1}')"
          echo ${{ steps.count.outputs.count }}
-    #  - name: condition
-    #    run: |
-    #      while :
-    #        do
-    #          if "${{ env.count }}" < 10; then 
-    #            echo “ok”
-    #          else 
-    #            break
-    #          fi
-    #        done
+     - name: condition
+       run: |
+         while :
+           do
+             if (wc -w 123.txt | awk '{print $1}') < 10; then 
+               echo “ok”
+             else 
+               break
+             fi
+           done
 
 
         #  if wc -w 123.txt > 10; then
