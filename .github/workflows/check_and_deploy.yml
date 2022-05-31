@@ -87,7 +87,7 @@ jobs:
        run: |
          while :
            do
-             if (wc -w 123.txt | awk '{print $1}') < 10; then 
+             if 6 < 10; then 
                echo “ok”
              else 
                break
