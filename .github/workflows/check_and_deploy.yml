@@ -84,7 +84,7 @@ jobs:
          wc -w 123.txt
      - name: condition
        run: |
-         while:
+         while
            do
              if wc -w 123.txt < 10; then 
                echo “ok”
