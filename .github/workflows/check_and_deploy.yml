@@ -81,7 +81,7 @@ jobs:
        id: count
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         echo wc -w 123.txt | awk '{print $1}' >> $SOME_ENV
+         wc -w 123.txt | awk '{print $1}' >> $SOME_ENV
      - name: condition
        run: |
          while :
