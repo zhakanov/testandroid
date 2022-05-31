@@ -78,7 +78,7 @@ jobs:
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: List all changed files
-       run: git ls-tree --full-tree -r HEAD --name-only | xargs -I '$' git show master:$ | wc -l
+       run: git ls-tree --full-tree -r HEAD --name-only | xargs -I '$' git show main:$ | wc -l
 
 
     #  - name: List all changed files
