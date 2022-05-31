@@ -85,8 +85,8 @@ jobs:
       #      done
      - name: List all changed files
        run: |
-         ls ${{ steps.changed-files.outputs.all_changed_files }}
-         wc -w ${{ steps.changed-files.outputs.all_changed_files }}
+         ls ${{ steps.changed-files.outputs.All_changed_and_modified_files }}
+         wc -w ${{ steps.changed-files.outputs.All_changed_and_modified_files }}
 
 
 
