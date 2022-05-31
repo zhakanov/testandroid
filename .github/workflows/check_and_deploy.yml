@@ -56,16 +56,16 @@
 name: Test and deploy
 
 # Actions that will be executed when you push code currently none 
-on:
-  push:
-    branches:
-      - main
-
 # on:
-#   pull_request:
-#     types: [ closed ]
+#   push:
 #     branches:
 #       - main
+
+on:
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
 
 jobs:
  build_android:
