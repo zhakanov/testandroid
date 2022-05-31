@@ -77,18 +77,18 @@ jobs:
      - name: Get changed files
        id: changed-files
        uses: tj-actions/changed-files@v21
-     - name: count
-       run: |
-         ${{ steps.changed-files.outputs.All_changed_and_modified_files }} > count.txt
-         cat count.txt
-
-
-
-    #  - name: List all changed files
+    #  - name: count
     #    run: |
-    #      for file in ${{ steps.changed-files.outputs.All_changed_and_modified_files }}; do
-    #       echo "$file was changed"
-    #      done
+    #      ${{ steps.changed-files.outputs.All_changed_and_modified_files }} > count.txt
+    #      cat count.txt
+
+
+
+     - name: List all changed files
+       run: |
+         for file in ${{ steps.changed-files.outputs.All_changed_and_modified_files }}; do
+          echo "$file was changed"
+         done
 
 
 
