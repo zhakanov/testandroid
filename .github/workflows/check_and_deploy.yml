@@ -81,7 +81,8 @@ jobs:
        id: count
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         echo "count=wc -w 123.txt | awk '{print $1}'" >> $GITHUB_ENV
+         echo "COUNT=$(wc -w 123.txt | awk '{print $1}')" >> $GITHUB_ENV
+         echo ${{ env.count }}
      - name: condition
        run: |
          while :
