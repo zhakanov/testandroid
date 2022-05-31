@@ -82,7 +82,7 @@ jobs:
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          echo "::set_output name=count::$(wc -w 123.txt | awk '{print $1}')"
-         echo ${{ steps.count.outputs.count }}
+         wc -w 123.txt | awk '{print $1}'
      - name: condition
        run: |
          while :
@@ -93,13 +93,6 @@ jobs:
                break
              fi
            done
-
-
-        #  if wc -w 123.txt > 10; then
-        #    :
-        #  else
-        #    echo "OK"
-        #  fi
 
 
     #  - name: List all changed files
