@@ -82,18 +82,16 @@ jobs:
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          wc -w 123.txt | awk '{print $1}'
-     - name: echo
-       run: echo ${{ steps.count.outputs.stdout }}
-    #  - name: condition
-    #    run: |
-    #      while :
-    #        do
-    #          if wc -w 123.txt < 10; then 
-    #            echo “ok”
-    #          else 
-    #            break
-    #          fi
-    #        done
+     - name: condition
+       run: |
+         while :
+           do
+             if wc -w 123.txt < 10; then 
+               echo “ok”
+             else 
+               break
+             fi
+           done
 
 
         #  if wc -w 123.txt > 10; then
