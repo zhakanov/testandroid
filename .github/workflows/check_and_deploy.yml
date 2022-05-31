@@ -81,12 +81,12 @@ jobs:
        id: count
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         wc -w 123.txt | awk '{print $1}' >> $SOME_ENV
+         echo "count=wc -w 123.txt | awk '{print $1}'" >> $GITHUB_ENV
      - name: condition
        run: |
          while :
            do
-             if $SOME_ENV < 10; then 
+             if "${{ env.count }}" < 10; then 
                echo “ok”
              else 
                break
