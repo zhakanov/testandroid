@@ -85,7 +85,7 @@ jobs:
       #      done
      - name: List all changed files
        run: |
-       ls -lart ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
+       ls ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
        wc -w 123.txt
 
 
