@@ -78,9 +78,9 @@ jobs:
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: count
-         run: |
-           ${{ steps.changed-files.outputs.All_changed_and_modified_files }} > count.txt
-           cat count.txt
+       run: |
+         ${{ steps.changed-files.outputs.All_changed_and_modified_files }} > count.txt
+         cat count.txt
 
 
 
