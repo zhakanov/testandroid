@@ -80,10 +80,10 @@ jobs:
      - name: count modified files
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         if wc -w 123.txt < 10; then
-           echo "okey"
+         if wc -w 123.txt > 10; then
+           break
          else
-           break;
+           echo "OK"
          fi
 
 
