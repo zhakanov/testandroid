@@ -85,7 +85,7 @@ jobs:
              if wc -w 123.txt < 10; then 
                echo “ok”
              else 
-               Break
+               break
              fi
            done
 
