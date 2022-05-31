@@ -81,13 +81,13 @@ jobs:
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          while :
-         do
-           if wc -w 123.txt < 10; then 
-                   echo “ok”
-                 else 
-                   Break
-                 fi
-         done
+           do
+             if wc -w 123.txt < 10; then 
+               echo “ok”
+             else 
+               Break
+             fi
+           done
 
 
         #  if wc -w 123.txt > 10; then
