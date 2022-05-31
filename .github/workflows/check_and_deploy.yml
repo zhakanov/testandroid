@@ -81,12 +81,12 @@ jobs:
        id: count
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         wc -w 123.txt
+         wc -w
      - name: condition
        run: |
          while :
            do
-             if '${{ steps.count.outputs }}' < 10; then 
+             if wc -w 123.txt < 10; then 
                echo “ok”
              else 
                break
