@@ -4,6 +4,9 @@ name: Test and deploy
 
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [ closed ]
     branches:
