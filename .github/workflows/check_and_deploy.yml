@@ -36,8 +36,11 @@ jobs:
     #    run: printenv
 
      - uses: technote-space/get-diff-action@v6
+       id: fix
        with:
          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
+     - name: count
+       run: echo ${{ env.GIT_DIFF }}
 
   
 
