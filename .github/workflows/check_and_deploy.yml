@@ -20,12 +20,12 @@ jobs:
    steps:
      - uses: actions/checkout@v2
        with:
-         fetch-depth: '0'
+#         fetch-depth: '0'
      - name: Get changed files
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: count modified files
-       id: data
+      #  id: data
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
          wc -w count | awk '{print $1}'
