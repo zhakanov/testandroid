@@ -31,7 +31,7 @@ jobs:
          wc -w count | awk '{print $1}'
          echo "count=$(wc -w count | awk '{print $1}')" >> $GITHUB_ENV
      - name: test
-       if: ${{ env.count }} <= 5
+       if: ${{ env.count <= 5 }} 
        run: printenv
 
 
