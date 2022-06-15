@@ -40,11 +40,10 @@ jobs:
       #  with:
         #  CHECK_ONLY_COMMIT_WHEN_DRAFT: true
      - name: count
-       if: ${{ steps.shag.outputs.count <=5 }} && failure()
+       if: ${{ steps.shag.outputs.count <=5 }}
        run: printenv
      - name: test step
-       if: success() || failure()
-       run: ls -lart
+       run: if [[ ${{ steps.shag.outputs.count }} <= 5 ]]; then exit 0; else exit 1; fi
 
   
 
