@@ -29,10 +29,9 @@ jobs:
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
          wc -w count | awk '{print $1}'
          echo "COUNT=$(wc -w count | awk '{print $1}') >> $GITHUB_ENV"
-         echo env.COUNT
-    #  - name: test
-    #    if: echo (wc -w 123.txt | awk '{print $1}') < 10 
-    #    run: echo "OK"
+     - name: test
+       if: $(wc -w count | awk '{print $1}') == 1
+       run: echo "OK"
 
 
 
