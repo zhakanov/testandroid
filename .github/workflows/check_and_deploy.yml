@@ -1,16 +1,17 @@
 name: Test and deploy
 
 #Actions that will be executed when you push code currently none 
-# on:
-#   push:
-#     branches:
-#       - main
 
 on:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
-      - main
+      - test1
+
+# on:
+#   pull_request:
+#     types: [ closed ]
+#     branches:
+#       - main
 
 jobs:
  build_android:
@@ -28,9 +29,9 @@ jobs:
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          wc -w 123.txt | awk '{print $1}'
          echo "COUNT=$(wc -w 123.txt | awk '{print $1}') >> $GITHUB_ENV"
-     - name: test
-       if: echo (wc -w 123.txt | awk '{print $1}') < 10 
-       run: echo "OK"
+    #  - name: test
+    #    if: echo (wc -w 123.txt | awk '{print $1}') < 10 
+    #    run: echo "OK"
 
 
 
