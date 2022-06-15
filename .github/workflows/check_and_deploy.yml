@@ -40,7 +40,7 @@ jobs:
        with:
          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
      - name: count
-       run: echo ${{ env.GIT_DIFF }}
+       run: echo ${{ steps.fix.outputs.count }}
 
   
 
