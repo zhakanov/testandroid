@@ -42,8 +42,8 @@ jobs:
      - name: count
        if: ${{ steps.shag.outputs.count <=5 }}
        run: printenv
-     - name: cancelling
-       if: ${{ steps.shag.outputs.count >=5 }}
+     - name: more than 20 files
+      # if: ${{ steps.shag.outputs.count >=5 }}
        uses: andymckay/cancel-action@0.2
 
     #  - name: condition
