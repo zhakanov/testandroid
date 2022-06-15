@@ -25,13 +25,15 @@ jobs:
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: count modified files
+       id: data
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
-         wc -w count | awk '{print $1}' >> 123
-         echo "COUNT=$(wc -w count | awk '{print $1}') >> $GITHUB_ENV"
+         wc -w count | awk '{print $1}'
+         echo "count=$(wc -w count | awk '{print $1}') >> $GITHUB_ENV"
+         echo 
      - name: test
    #    if: $(wc -w count | awk '{print $1}') == 1
-       run: echo 123
+       run: echo "${{ count.data }}"
 
 
 
