@@ -29,7 +29,6 @@ jobs:
          wc -w 123.txt | awk '{print $1}'
  
 
-
     #  - name: condition
     #    run: |
     #      while :
