@@ -15,7 +15,6 @@ on:
 
 jobs:
  build_android:
-  #  if: startsWith(github.head_ref, 'release/') == true
    name: Build debug artifacts
    runs-on: ubuntu-latest
    steps:
