@@ -28,7 +28,7 @@ jobs:
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
          wc -w 123.txt | awk '{print $1}'
 
-     - name: condition
+     - name: condition asd
        if: (wc -w 123.txt | awk '{print $1}') > 10
        run: echo "that's OK"
 
