@@ -2,12 +2,15 @@ name: Test and deploy
 
 #Actions that will be executed when you push code currently none 
 
-
 on:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
       - main
+# on:
+#   pull_request:
+#     types: [ closed ]
+#     branches:
+#       - main
 
 jobs:
  build_android:
@@ -16,19 +19,24 @@ jobs:
    steps:
      - uses: actions/checkout@v2
        with:
-         fetch-depth: '2'
-     - name: Get changed files
-       id: changed-files
-       uses: tj-actions/changed-files@v23
-     - name: count modified files
-      #  id: data
+    #      fetch-depth: '2'
+    #  - name: Get changed files
+    #    id: changed-files
+    #    uses: tj-actions/changed-files@v23
+    #  - name: count modified files
+    #   #  id: data
+    #    run: |
+    #      echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
+    #      wc -w count | awk '{print $1}'
+    #      echo "count=$(wc -w count | awk '{print $1}')" >> $GITHUB_ENV
+    #  - name: test
+    #    if: ${{ env.count <= 5 }} 
+    #    run: printenv
+
+     - name: Debug github.sha
        run: |
-         echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
-         wc -w count | awk '{print $1}'
-         echo "count=$(wc -w count | awk '{print $1}')" >> $GITHUB_ENV
-     - name: test
-       if: ${{ env.count <= 5 }} 
-       run: printenv
+         git diff --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+
   
 
    
