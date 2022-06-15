@@ -42,6 +42,9 @@ jobs:
      - name: count
        if: ${{ steps.shag.outputs.count <=5 }}
        run: printenv
+     - name: test step
+       if: success() || failure()
+       run: ls -lart
 
   
 
