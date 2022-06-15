@@ -33,9 +33,9 @@ jobs:
     #    if: ${{ env.count <= 5 }} 
     #    run: printenv
 
-     - name: Debug github.sha
-       run: |
-         git diff --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+     - uses: technote-space/get-diff-action@v6
+       with:
+         CHECK_ONLY_COMMIT_WHEN_DRAFT: true
 
   
 
