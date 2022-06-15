@@ -1,5 +1,2 @@
 # testandroid
 
-
-
-asdasdsad
