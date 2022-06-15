@@ -43,7 +43,7 @@ jobs:
        if: ${{ steps.shag.outputs.count <=5 }}
        run: printenv
      - name: test step
-       run: if [[ ${{ steps.shag.outputs.count }} <= 5 ]]; then exit 0; else exit 1; fi
+       run: if [[ ${{ steps.shag.outputs.count }} >= 5 ]]; then exit 0; else exit 1; fi
 
   
 
