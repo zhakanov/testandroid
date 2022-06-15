@@ -1,0 +1,98 @@
+name: Test and deploy
+
+#Actions that will be executed when you push code currently none 
+# on:
+#   push:
+#     branches:
+#       - main
+
+on:
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
+
+jobs:
+ build_android:
+   name: Build debug artifacts
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - name: Get changed files
+       id: changed-files
+       uses: tj-actions/changed-files@v21
+     - name: count modified files
+       run: |
+         echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
+         wc -w 123.txt | awk '{print $1}'
+    #  - name: condition
+    #    run: |
+    #      while :
+    #        do
+    #          if 6 < 10; then 
+    #            echo “ok”
+    #          else 
+    #            break
+    #          fi
+    #        done
+
+
+    #  - name: List all changed files
+    #    run: |
+    #      for file in ${{ steps.changed-files.outputs.All_changed_and_modified_files }}; do
+    #       echo "$file was changed"
+    #      done
+
+
+
+
+# # name: Test and deploy
+
+# # ## Actions that will be executed when you push code currently none
+# # on:
+# #   pull_request:
+# #     types: [ closed ]
+# #     branches:
+# #       - main
+
+
+# name: Test and deploy
+
+# ## Actions that will be executed when you push code currently none
+# # on:
+# #   push:
+# #     branches:
+# #       - main
+
+# on:
+#   pull_request:
+#     types: [ closed ]
+#     branches:
+#       - master
+
+# jobs:
+#  build_apk_aab:
+#   #  if: startsWith(github.head_ref, 'release/') == true
+#    name: Build release artifacts
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: permission to gradlew
+#        run: chmod +x gradlew 
+#      - name: Generate Release APK
+#        run: ./gradlew assembleRelease
+#      # - name: Sign APK
+#      #   uses: r0adkll/sign-android-release@v1
+#      #   # ID used to access action output
+#      #   id: sign_app
+#      #   with:
+#      #    releaseDirectory: app/build/outputs/apk/release
+#      #    signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+#      #    alias: ${{ secrets.ALIAS }}
+#      #    keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+#      #    keyPassword: ${{ secrets.KEY_PASSWORD }}
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: app-release.apk
+#          path: app/build/outputs/apk/release/app-release-unsigned.apk
