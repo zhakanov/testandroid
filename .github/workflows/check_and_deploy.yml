@@ -37,7 +37,7 @@ jobs:
 
      - uses: technote-space/get-diff-action@v6
        id: shag
-       with:
+      #  with:
         #  CHECK_ONLY_COMMIT_WHEN_DRAFT: true
      - name: count
        if: ${{ steps.shag.outputs.count <=5 }}
