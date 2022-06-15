@@ -1,16 +1,13 @@
 name: Test and deploy
 
 #Actions that will be executed when you push code currently none 
+
+
 on:
-  push:
+  pull_request:
+    types: [ closed ]
     branches:
       - main
-
-# on:
-#   pull_request:
-#     types: [ closed ]
-#     branches:
-#       - main
 
 jobs:
  build_android:
@@ -18,20 +15,21 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
-       with:
-         fetch-depth: '0'
+#       with:
+#         fetch-depth: '0'
      - name: Get changed files
        id: changed-files
        uses: tj-actions/changed-files@v21
      - name: count modified files
+      #  id: data
        run: |
-         echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         wc -w 123.txt | awk '{print $1}'
-         echo "COUNT=$(wc -w 123.txt | awk '{print $1}') >> $GITHUB_ENV"
+         echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
+         wc -w count | awk '{print $1}'
+         echo "count=$(wc -w count | awk '{print $1}')" >> $GITHUB_ENV
      - name: test
-       if: echo (wc -w 123.txt | awk '{print $1}') < 10 
-       run: echo "OK"
-
+       if: ${{ env.count <= 5 }} 
+       run: printenv
+  
 
 
     #  - name: List all changed files
