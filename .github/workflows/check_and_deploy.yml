@@ -42,25 +42,29 @@ jobs:
      - name: count
        if: ${{ steps.shag.outputs.count <=5 }}
        run: printenv
-     - name: condition
-       run: |
-         while :
-           do
-             if ${{ steps.shag.outputs.count <=5 }}; then 
-               echo “ok”
-             else 
-               break
-             fi
-           done
+     - name: cancelling
+       if: ${{ steps.shag.outputs.count <=5 }}
+       uses: andymckay/cancel-action@0.2
+
+    #  - name: condition
+    #    run: |
+    #      while :
+    #        do
+    #          if ${{ steps.shag.outputs.count <=5 }}; then 
+    #            echo “ok”
+    #          else 
+    #            break
+    #          fi
+    #        done
 
   
 
    
-    #  - name: List all changed files
-    #    run: |
-    #      for file in ${{ steps.changed-files.outputs.All_changed_and_modified_files }}; do
-    #       echo "$file was changed"
-    #      done
+     - name: List all changed files
+       run: |
+         for file in ${{ steps.changed-files.outputs.All_changed_and_modified_files }}; do
+          echo "$file was changed"
+         done
 
 
 
