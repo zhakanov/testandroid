@@ -39,7 +39,7 @@ jobs:
        id: shag
      - name: more than 20 files
        if: ${{ steps.shag.outputs.count >=5 }}
-       uses: andymckay/cancel-action@0.2
+       run: exit 1 
 
     #  - name: condition
     #    run: |
