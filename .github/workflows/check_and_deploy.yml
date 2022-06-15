@@ -33,7 +33,7 @@ jobs:
          echo 
      - name: test
    #    if: $(wc -w count | awk '{print $1}') == 1
-       run: echo "${{ count.data }}"
+       run: echo "${{ env.count }}"
 
 
 
