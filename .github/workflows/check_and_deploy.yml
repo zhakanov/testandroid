@@ -29,7 +29,8 @@ jobs:
          wc -w 123.txt | awk '{print $1}'
          echo "COUNT=$(wc -w 123.txt | awk '{print $1}') >> $GITHUB_ENV"
      - name: test
-       run: echo $COUNT
+       if $(wc -w 123.txt | awk '{print $1}') < 10 
+       run: echo "OK"
 
 
 
