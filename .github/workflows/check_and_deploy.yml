@@ -26,15 +26,8 @@ jobs:
      - name: count modified files
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> 123.txt
-         wc -w 123.txt | awk '{print $1}' >> $GITHUB_ENV
-         printenv
-     - name: Fetch and Diff PR with base from which it was cloned
-      # git fetch will fail if ${{ github.event.pull_request.base.sha }} is not set.
-      # ${{ github.event.pull_request.base.sha }} WILL be set for event `pull_request`
-       if: ${{ github.event.pull_request.base.sha }}  
-       run: |
-         git fetch origin main ${{ github.event.pull_request.base.sha }}
-         git diff ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
+         wc -w 123.txt | awk '{print $1}'
+ 
 
 
     #  - name: condition
