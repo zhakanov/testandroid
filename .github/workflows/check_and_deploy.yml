@@ -27,11 +27,11 @@ jobs:
      - name: count modified files
        run: |
          echo ${{ steps.changed-files.outputs.All_changed_and_modified_files }} >> count
-         wc -w count | awk '{print $1}'
+         wc -w count | awk '{print $1}' >> 123
          echo "COUNT=$(wc -w count | awk '{print $1}') >> $GITHUB_ENV"
      - name: test
-       if: $(wc -w count | awk '{print $1}') == 1
-       run: echo "OK"
+   #    if: $(wc -w count | awk '{print $1}') == 1
+       run: echo 123
 
 
 
