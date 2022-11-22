@@ -8,9 +8,7 @@ name: Test and deploy
 #       - test1
 on:
   push:
-    types: [ closed ]
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
  build_android:
