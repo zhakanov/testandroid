@@ -59,12 +59,18 @@ jobs:
           echo "$file was changed"
          done
 
-     - uses: yanzay/notify-telegram@v0.1.0
-       if: always()
+     - name: send telegram message on push
+       uses: appleboy/telegram-action@master
        with:
-         chat: ${{ secrets.chat }} # user id or channel name secret
-         token: ${{ secrets.token }} # token secret
-         status: ${{ job.status }} # do not modify this line
+         to: ${{ secrets.chat }}
+         token: ${{ secrets.token }}
+         message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
 
 # # name: Test and deploy
