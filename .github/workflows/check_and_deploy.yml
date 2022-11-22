@@ -67,7 +67,7 @@ jobs:
          message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
-            
+            status: ${{ job.status }} # do not modify this line
             Repository: ${{ github.repository }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
