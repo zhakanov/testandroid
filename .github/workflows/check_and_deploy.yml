@@ -7,7 +7,7 @@ name: Test and deploy
 #     branches:
 #       - test1
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:
