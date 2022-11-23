@@ -71,7 +71,6 @@ jobs:
             Commit message: ${{ github.event.commits[0].message }}
             status: ${{ job.status }}
             Repository: ${{ github.repository }}
-            
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
 
