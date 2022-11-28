@@ -3,29 +3,8 @@ name: Test and deploy
 #Actions that will be executed when you push code currently none 
 
 on:
-#   push:
-#     branches:
-#       - test1
-  workflow_dispatch:
-      inputs:
-        logLevel:
-          description: 'Log level'
-          required: true
-          default: 'warning'
-          type: choice
-          options:
-          - info
-          - warning
-          - debug
-        tags:
-          description: 'Test scenario tags'
-          required: false
-          type: boolean
   push:
-    types: [ closed ]
-    branches:
-      - develop
-      - main
+    branches: [ main ]
 
 jobs:
  build_android:
