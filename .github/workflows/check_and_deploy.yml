@@ -21,7 +21,7 @@ on:
           description: 'Test scenario tags'
           required: false
           type: boolean
-  pull_request:
+  push:
     types: [ closed ]
     branches:
       - develop
