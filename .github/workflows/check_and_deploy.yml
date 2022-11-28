@@ -3,6 +3,21 @@ name: Test and deploy
 #Actions that will be executed when you push code currently none 
 
 on:
+  workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'
+          required: true
+          default: 'warning'
+          type: choice
+          options:
+          - info
+          - warning
+          - debug
+        tags:
+          description: 'Test scenario tags'
+          required: false
+          type: boolean
   push:
     branches: [ main ]
 
