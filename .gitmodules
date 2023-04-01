@@ -1,0 +1,3 @@
+[submodule "calc"]
+	path = calc
+	url = https://github.com/zhakanov/Calculator-SPM-local.git
